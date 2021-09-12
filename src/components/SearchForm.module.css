@@ -1,0 +1,43 @@
+.form-container {
+    margin: 0;
+    min-width: 70vw;
+    position: relative;
+
+}
+
+.form {
+    width: 100%;
+}
+
+.form input {
+    width: 100%;
+    float: right;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.add__icon {
+    color: green;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    cursor: pointer;
+}
+
+.alert {
+    position: absolute;
+    bottom: -50px;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: rgba(199, 199, 199, 0.6);   
+}
+
+.alert--success {
+    background-color: rgb(53, 124, 216);
+    cursor: pointer;
+}

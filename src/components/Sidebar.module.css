@@ -1,0 +1,39 @@
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  z-index: 10;
+  text-align: center;
+
+
+  background-image: var(--background-gradient);
+    color: #fff;
+}
+
+.sidebar > * {
+    font-weight: 100;
+}
+
+.title {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cities {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 0;
+  margin-top: 3rem;
+}
+
+.closeBtn {
+    position: fixed;
+    bottom: 50px;
+    transform: translateX(-50%);
+}
+

@@ -1,0 +1,10 @@
+.note {
+    color: #fff;
+    padding: 20px;
+    margin-top: 200px;
+}
+
+.note > * {
+    padding: 10px;
+    font-weight: 300;
+}

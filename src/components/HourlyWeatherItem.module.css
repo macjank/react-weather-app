@@ -1,0 +1,14 @@
+.hour {
+  border-right: 1px solid #fff;
+  min-width: 20vw;
+}
+
+.image {
+  max-width: 30px;
+}
+
+.time,
+.temp {
+  color: #fff;
+  font-weight: 100;
+}

@@ -1,0 +1,7 @@
+.city {
+  padding: 2rem;
+  margin: 2rem;
+  cursor: pointer;
+  background: var(--primary-green);
+  border-radius: 15px;
+}
