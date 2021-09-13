@@ -3,18 +3,20 @@ import WeatherContext from "../store/weather-context";
 import styles from "./TodayWeather.module.css";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { FiSunrise, FiSunset } from "react-icons/fi";
-import FavContext from "../store/fav-context";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { favsActions } from "../store/favs-redux";
 
 const TodayWeather = () => {
+  //state data
   const { weatherData } = useContext(WeatherContext);
+  const favs = useSelector(state => state.favs);
+  const dispatch = useDispatch();
+
   const { cityName, weatherInfo } = weatherData;
   const { temp, feels_like, weather, sunrise, sunset } = weatherInfo.current;
   const iconCode = weather[0].icon;
-
-  console.log(weatherData);
-
-  const { favCities, onAddToFavs, onRemoveFromFavs } = useContext(FavContext);
-  const isCityInFavorites = favCities.some(item => item.cityName === cityName);
+  const isCityInFavorites = favs.some(item => item.cityName === cityName);
 
   const sunriseDate = new Date(sunrise * 1000);
   const sunriseHour = sunriseDate.getHours();
@@ -24,28 +26,30 @@ const TodayWeather = () => {
   const sunsetHour = sunsetDate.getHours();
   const sunsetMin = sunsetDate.getMinutes();
 
+  const handleAddToFavs = () => {
+    dispatch(
+      favsActions.addCityToFavs({
+        cityName,
+        cityLat: weatherInfo.lat,
+        cityLon: weatherInfo.lon,
+      })
+    );
+  };
+
+  const handleRemoveFromFavs = () => {
+    dispatch(
+      favsActions.removeCityFromFavs({
+        cityName,
+        cityLat: weatherInfo.lat,
+        cityLon: weatherInfo.lon,
+      })
+    );
+  };
+
   const favIcon = isCityInFavorites ? (
-    <FaHeart
-      size={25}
-      onClick={() =>
-        onRemoveFromFavs({
-          cityName,
-          cityLat: weatherInfo.lat,
-          cityLon: weatherInfo.lon,
-        })
-      }
-    />
+    <FaHeart size={25} onClick={handleRemoveFromFavs} />
   ) : (
-    <FaRegHeart
-      size={25}
-      onClick={() =>
-        onAddToFavs({
-          cityName,
-          cityLat: weatherInfo.lat,
-          cityLon: weatherInfo.lon,
-        })
-      }
-    />
+    <FaRegHeart size={25} onClick={handleAddToFavs} />
   );
 
   return (

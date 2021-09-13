@@ -3,7 +3,6 @@ import { daysOfWeek } from "../data/days-and-months";
 
 const DailyWeatherItem = ({ temp, timestamp, iconCode }) => {
   const date = new Date(timestamp * 1000);
-  const dayNum = date.getDay();
   const dayOfWeek = daysOfWeek[date.getDay()];
 
   return (

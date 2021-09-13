@@ -2,16 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store/favs-redux";
 import { WeatherContextProvider } from "./store/weather-context";
-import { FavContextProvider } from "./store/fav-context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <FavContextProvider>
+    <Provider store={store}>
       <WeatherContextProvider>
         <App />
       </WeatherContextProvider>
-    </FavContextProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
