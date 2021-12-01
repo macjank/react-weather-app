@@ -1,32 +1,14 @@
-import { useContext, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useContext } from "react";
 import "./App.css";
-import DailyWeatherContainer from "./components/DailyWeatherContainer";
-import Header from "./components/Header";
-import HourlyWeatherContainer from "./components/HourlyWeatherContainer";
+import DailyWeatherContainer from "./components/Weather/DailyWeatherContainer";
+import Header from "./components/Navigation/Header";
+import HourlyWeatherContainer from "./components/Weather/HourlyWeatherContainer";
 import NothingToShow from "./components/NothingToShow";
-import TodayWeather from "./components/TodayWeather";
-import {
-  favsActions,
-  getFavsFromStorage,
-  setFavsInStorage,
-} from "./store/favs-redux";
+import TodayWeather from "./components/Weather/TodayWeather";
 import WeatherContext from "./store/weather-context";
 
 function App() {
   const { weatherData } = useContext(WeatherContext);
-
-  const favs = useSelector(state => state.favs);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getFavsFromStorage());
-  }, []);
-
-  useEffect(() => {
-    dispatch(setFavsInStorage(favs));
-  }, [favs]);
 
   const content = weatherData ? (
     <>

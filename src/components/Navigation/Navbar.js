@@ -1,8 +1,8 @@
 import styles from "./Navbar.module.css";
 import SearchForm from "./SearchForm";
 import { FiMenu } from "react-icons/fi";
-import { useState } from "react/cjs/react.development";
-import Sidebar from "./Sidebar";
+import { useState } from "react";
+import Sidebar from "../Favorites/Sidebar";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,8 +17,8 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <FiMenu className={styles.menu} size={30} onClick={handleOpenSidebar} />
       <SearchForm />
+      <FiMenu className={styles.menu} size={30} onClick={handleOpenSidebar} />
       {isSidebarOpen && <Sidebar onCloseSidebar={handleCloseSidebar} />}
     </nav>
   );

@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import { daysOfWeek, months } from "../data/days-and-months";
+import { daysOfWeek, months } from "../../data/days-and-months";
 import styles from "./Header.module.css";
 
 const Header = () => {
