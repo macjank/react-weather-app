@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import WeatherContext from "../store/weather-context";
+import WeatherContext from "../../store/weather-context";
 import DailyWeatherItem from "./DailyWeatherItem";
 import styles from "./DailyWeatherContainer.module.css";
 
@@ -9,9 +9,8 @@ const DailyWeatherContainer = () => {
 
   return (
     <div className={styles.days}>
-      {dailyData.map((item, index) => {
-        //dont want to get data for current day
-        if (index === 0) return;
+      {/* slice(1), bc dont want to get data for current day */}
+      {dailyData.slice(1).map((item, index) => {
         const { temp, dt } = item;
         return (
           <DailyWeatherItem

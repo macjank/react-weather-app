@@ -5,35 +5,37 @@
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
-  overflow-y: scroll;
+
   z-index: 10;
   text-align: center;
 
-
   background-image: var(--background-gradient);
-    color: #fff;
+  color: #fff;
 }
 
 .sidebar > * {
-    font-weight: 100;
+  font-weight: 100;
+  max-width: 700px;
+  margin: auto;
 }
 
 .title {
-    text-align: center;
-    margin-top: 3rem;
+  text-align: center;
+  margin-top: 3rem;
 }
 
 .cities {
   list-style-type: none;
   display: grid;
-  grid-template-columns: 50% 50%;
-  padding: 0;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
   margin-top: 3rem;
 }
 
 .closeBtn {
-    position: fixed;
-    bottom: 50px;
-    transform: translateX(-50%);
+  position: fixed;
+  bottom: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
 }
-

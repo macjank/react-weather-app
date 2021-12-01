@@ -1,5 +1,5 @@
-import { useContext } from "react/cjs/react.development";
-import WeatherContext from "../store/weather-context";
+import { useContext } from "react";
+import WeatherContext from "../../store/weather-context";
 import styles from "./FavCity.module.css";
 
 const FavCity = ({ cityDetails, onCloseSidebar }) => {
@@ -7,7 +7,6 @@ const FavCity = ({ cityDetails, onCloseSidebar }) => {
 
   const handleShowWeather = () => {
     onCloseSidebar();
-    //console.log(cityDetails);
     onShowWeatherFromFavs(cityDetails);
   };
 

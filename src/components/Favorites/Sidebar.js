@@ -1,19 +1,19 @@
 import reactDom from "react-dom";
-import React from "react";
+import React, { useContext } from "react";
 import FavCity from "./FavCity";
 import styles from "./Sidebar.module.css";
 import { FiX } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import FavsContext from "../../store/favs-context";
 
 const SidebarContent = ({ onCloseSidebar }) => {
-  const favs = useSelector(state => state.favs);
+  const { favCities } = useContext(FavsContext);
 
   return (
-    <React.Fragment>
+    <>
       <aside className={styles.sidebar}>
         <h2 className={styles.title}>Favorites</h2>
         <ul className={styles.cities}>
-          {favs.map((item, index) => {
+          {favCities.map((item, index) => {
             return (
               <FavCity
                 key={index}
@@ -25,18 +25,18 @@ const SidebarContent = ({ onCloseSidebar }) => {
         </ul>
         <FiX size={80} className={styles.closeBtn} onClick={onCloseSidebar} />
       </aside>
-    </React.Fragment>
+    </>
   );
 };
 
 const Sidebar = ({ onCloseSidebar }) => {
   return (
-    <React.Fragment>
+    <>
       {reactDom.createPortal(
         <SidebarContent onCloseSidebar={onCloseSidebar} />,
         document.getElementById("sidebar")
       )}
-    </React.Fragment>
+    </>
   );
 };
 

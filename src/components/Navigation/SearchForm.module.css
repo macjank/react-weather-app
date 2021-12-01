@@ -1,7 +1,8 @@
 .form-container {
     margin: 0;
-    min-width: 70vw;
     position: relative;
+    flex-grow: 1;
+    max-width: 80%;
 
 }
 
@@ -11,7 +12,8 @@
 
 .form input {
     width: 100%;
-    float: right;
+    height: 30px;
+
     padding: 10px;
     border: none;
     border-radius: 10px;

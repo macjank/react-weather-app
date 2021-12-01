@@ -1,5 +1,5 @@
 import styles from "./DailyWeatherItem.module.css";
-import { daysOfWeek } from "../data/days-and-months";
+import { daysOfWeek } from "../../data/days-and-months";
 
 const DailyWeatherItem = ({ temp, timestamp, iconCode }) => {
   const date = new Date(timestamp * 1000);
