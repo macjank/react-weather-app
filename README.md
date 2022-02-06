@@ -12,8 +12,7 @@ https://festive-goodall-e0b07c.netlify.app/
 - HTML5
 - CSS3
 - JavaScript (ES6)
-- React-Redux - ^7.2.5
-- Redux Toolkit - ^1.6.1
+- Context API
 - CSS modules
 
 ## Setup
